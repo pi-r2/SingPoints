@@ -1,0 +1,20 @@
+#Reduced Groebner basis data
+#---
+#field characteristic: 251
+#variable order:       y0, y1, y2, x0, x1, x2, x3, x4, x5, x6
+#monomial order:       graded reverse lexicographical
+#length of basis:      13 elements sorted by increasing leading monomials
+#---
+[1*x5^1+246*x6^1+56,
+1*x4^1+234*x6^1+195,
+1*x3^1+121*x6^1+162,
+1*x2^1+114*x6^1+139,
+1*x1^1+250*x6^1+43,
+1*x0^1+158*x6^1+162,
+1*y0^1+79*y1^1+58*y2^1+214*x6^1+31,
+1*x6^2+175*y1^1+105*y2^1+6*x6^1+217,
+1*y2^1*x6^1+136*y1^1+111*y2^1+33*x6^1+112,
+1*y1^1*x6^1+41*y1^1+30*y2^1+226*x6^1+40,
+1*y2^2+17*y1^1+167*y2^1+188*x6^1+156,
+1*y1^1*y2^1+142*y1^1+180*y2^1+195*x6^1+37,
+1*y1^2+142*y1^1+110*y2^1+26*x6^1+225]:

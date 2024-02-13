@@ -1,0 +1,61 @@
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  2      20      21      22 x 216        49.39%       20 new       0 zero         0.00 | 0.02         
+  3      86      86     457 x 1731        5.51%       85 new       1 zero         0.01 | 1.01         
+  4     698     698    4429 x 9753        2.39%      296 new     402 zero         0.16 | 7.91         
+  5    3571    3571   26643 x 43321       1.26%     1147 new    2424 zero         3.27 | 140.93       
+  6   16844   16965  115076 x 151853      0.93%     4242 new   12602 zero        96.38 | 3293.86      
+  7   73279   74504  409957 x 455416      0.76%    17341 new   55938 zero      3199.75 | 57914.76     
+  7  180209  296853  448844 x 315327      4.82%    15647 new  164562 zero     10251.71 | 444836.79    
+  7   79100  270796  298777 x 255382      5.10%    11005 new   68095 zero      6784.55 | 192018.67    
+  7  133485  265183  357505 x 250287      5.56%    19045 new  115478 zero     14872.69 | 357955.62    
+  6  216070  274891  354046 x 146362      5.10%     7210 new  208860 zero      4079.92 | 129076.72    
+  4    4200   88631   12509 x 9479        9.07%      924 new    3276 zero       222.88 | 1587.64      
+  2     155   51706     330 x 216         8.13%        0 new     155 zero         0.01 | 0.12         
+  3    2230   51551    3653 x 1564        5.98%        0 new    2230 zero         0.04 | 1.88         
+  4    4408   49321   10200 x 6038        7.94%        0 new    4408 zero         0.28 | 3.78         
+  5   25564   44913   50193 x 24881      10.26%        0 new   25564 zero         9.17 | 124.43       
+  6    7703   19349   43365 x 35914       4.24%        0 new    7703 zero         4.42 | 22.08        
+  7   11646   11646  237031 x 225637      0.71%        0 new   11646 zero        32.23 | 370.79       
+------------------------------------------------------------------------------------------------------
+reduce final basis    11034 x 11286       0.61%                                   0.44 | 1.89         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)    39558.01 sec
+overall(cpu)      1187364.03 sec
+select               1441.96 sec   3.6%
+symbolic prep.        303.72 sec   0.8%
+update              20315.23 sec  51.4%
+convert                 3.40 sec   0.0%
+linear algebra      17492.38 sec  44.2%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                   306
+#terms in basis               62550
+#pairs reduced               759268
+#GM criterion            2962470368
+#redundant elements           76678
+#rows reduced               1520612
+#zero reductions             683344
+max. matrix data             409957 x 455416 (0.762%)
+max. symbolic hash table size  2^19
+max. basis hash table size     2^27
+-----------------------------------------
+

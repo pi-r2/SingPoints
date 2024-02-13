@@ -1,0 +1,50 @@
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  1       1      13       2 x 8         100.00%        1 new       0 zero         0.00 | 0.00         
+  2      12      12      33 x 60         28.18%       12 new       0 zero         0.00 | 0.01         
+  3      30      30      98 x 145        11.96%       29 new       1 zero         0.00 | 0.34         
+  3      46      62     124 x 124        17.18%       42 new       4 zero         0.00 | 0.35         
+  2      30     113      71 x 45         17.28%        0 new      30 zero         0.00 | 0.00         
+  3      83      83     173 x 94          8.91%        0 new      83 zero         0.00 | 0.02         
+------------------------------------------------------------------------------------------------------
+reduce final basis       13 x 17         28.05%                                   0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ---------------
+overall(elapsed)        0.03 sec
+overall(cpu)            2.64 sec
+select                  0.00 sec   1.0%
+symbolic prep.          0.00 sec   0.3%
+update                  0.03 sec  84.3%
+convert                 0.00 sec   1.9%
+linear algebra          0.00 sec  11.5%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                    13
+#terms in basis                  53
+#pairs reduced                  202
+#GM criterion                  4551
+#redundant elements              88
+#rows reduced                   404
+#zero reductions                118
+max. matrix data                173 x 94 (8.910%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
