@@ -168,3 +168,19 @@ def Verify(M, X, G, verbose = False):
         if not(ver):
             return False
     return True
+
+def FOXKeyGen(q,o,v,t ) :
+    """
+      
+    """
+    n=o+v
+    (A,F), G = KeyGen(q,o,v) #Underlying UOV of the key-pair.
+    for i in range(t) :
+        F[i] = matrix(complete_basis([],GF(q)**n)) #We replace the first t equations by random quadratic equations.
+        G[i] = A.transpose()*G[i]*A
+    Sp = matrix(complete_basis([],GF(q)**(o-t)))[:t] #We generate the S-map.
+
+    S = block_matrix([[matrix.identity(GF(q),t),Sp], [matrix(GF(q), o-t, t), matrix.identity(GF(q),o-t)]])
+    G2 = [ sum([S[j,i]*G[j] for j in range(o)]) for i in range(o)]
+    
+    return (A,S,F, G), G2 #This a pair of the form Secret key, Public key.
