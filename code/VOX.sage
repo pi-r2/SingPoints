@@ -32,7 +32,7 @@ def one_vector_FOX(G,x,t, verbose = False) :
         print(f"Next, we compute a grevlex Grobner basis for the ideal defined by the equations of this restriction to which we add o-2t-1={o-2*t-1} hyperplanes to obtain a zero-dimensional intersection with Ot.")
         print("X = ", X)
     eqs = [X*g*X for g in G3]+[X*vector([GF(q).random_element() for _ in range(N)]) for _ in range(o-2*t-1)] #Here we add 1 less hyperplane to compensate for xN-1 which was accounted for earlier.
-    ToMSolve(eqs, "/tmp/ovox.ms")
+    ToMSolve(eqs, "io/ovox.ms")
     try:
         if flag :
             raise Exception("This branch will fail")
@@ -40,8 +40,8 @@ def one_vector_FOX(G,x,t, verbose = False) :
             verb = "-v2"
         else :
             verb = ""
-        os.system("./msolve "+verb+" -g2 -t8 -f /tmp/ovox.ms -o /tmp/ovox.o > /tmp/ovox.log")
-        gb = FromMsolve("/tmp/ovox.o", R)
+        os.system("./msolve "+verb+" -g2 -t8 -f io/ovox.ms -o io/ovox.o > io/ovox.log")
+        gb = FromMsolve("io/ovox.o", R)
     except:
         flag = True
         if verbose :

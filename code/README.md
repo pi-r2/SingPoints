@@ -1,5 +1,7 @@
 This folder contains code demonstrating the properties of the singular locus of a UOV public key, and the attacks on UOV and VOX.
-It is recommended to use msolve: a binary for linux is provided (allow it to be executed with '''chmod +x msolve''').
+It is recommended to use msolve: binaries are provided on the webpage
+https://msolve.lip6.fr/binaries/index.html
+Simply drop the binary in this folder and rename it "msolve".
 
 The file **exp_sing.sage** generates equations for several parameter sets, and verifies the dimension of the singular locus by intersecting it with random hyperplanes.
 If the number of hyperplanes matches the dimension, the system is zero-dimensional,
