@@ -195,12 +195,12 @@ def bihom_FOX(G2, r, t) :
     eqs_quad = [x*g*x for g in G2]
     eqs_bilin = list(y*J)
     sys = eqs_quad + eqs_bilin 
-    ToMSolve(sys, 'VOX' + str(m) + '.ms')
+    ToMSolve(sys, 'io/VOX' + str(m) + '.ms')
     return sys
 
 print("########################################################################################################################################################")
 
-print("First, we demonstrate Theorem 2 in practice by computing a grevlex Groebner basis of the ideal of the singular locus of a random FOX public key.")
+print("First, we demonstrate Theorem 4.1 in practice by computing a grevlex Groebner basis of the ideal of the singular locus of a random FOX public key.")
 q,o,v,t = 251, 5, 6, 1
 print('We use parameters q,o,v,t=',q,o,v,t)
 (A,Sp,F, G), G2 = FOXKeyGen(q,o,v,t)
@@ -212,9 +212,9 @@ print("Therefore, we choose r=",r-1)
 sys = bihom_FOX(G2, r, t) 
 print("We solve the system with msolve:")
 gb = []
-os.system("./msolve -v2 -g2 -t8 -f VOX"+str(o)+".ms -o VOX"+str(o)+".o > VOX"+str(o)+".log")
+os.system("./msolve -v2 -g2 -t8 -f io/VOX"+str(o)+".ms -o io/VOX"+str(o)+".o > io/VOX"+str(o)+".log")
 try:
-	gb = FromMsolve("VOX"+str(o)+".o", sys[0].parent())
+	gb = FromMsolve("io/VOX"+str(o)+".o", sys[0].parent())
 except:
 	#Issue detected with msolve, defaulting to provided output.
 	gb = Ideal(sys).groebner_basis()[::-1]
@@ -227,7 +227,7 @@ print("This does not imply that there are Fq-rational singular points, and we do
 print("  ")
 print("########################################################################################################################################################")
 
-print("Next, we demonstrate the one vector key recovery.")
+print("Next, we demonstrate the one vector key recovery (Theorem 4.2.")
 
 q,o,v,t = 251, 48, 54, 6 # I
 #q,o,v,t = 1021, 70, 77, 7 #III
@@ -247,7 +247,7 @@ O = span(A.inverse().columns()[:o])
 x = O.random_element()
 print("x=",x)
 
-print("We compute a subspace of O of large enough dimension using the approach of Section 4.3.")
+print("We compute a subspace of O of large enough dimension using Lemma 4.1.")
 O2 = one_vector_FOX(G2, x, t, verbose=True)
 print("The subspace we have computed has dimension d =", O2.dimensions()[0], " and t =",t)
 #print(O2)
@@ -273,7 +273,7 @@ q,o,v,t = 7, 10, 12, 2
 (A,Sp,F, G), G2 = FOXKeyGen(q,o,v,t)
 n = o+v
 d =  3*o-n-1-t
-print("Last, we demonstrate the Kipnis-Shamir + one vector attack on the VOX public key.")
+print("Last, we demonstrate the Kipnis-Shamir + one vector attack on the VOX public key. (Theorem 4.3)")
 print("Parameters o,v,q,t:",o,v,q,t)
 print("The dimension of the singular locus of the underlying key is expected to be:",d)
 print("The key is vulnerable to the Kipnis-Shamir + one vector attack: ", n-2*o+1<o-2*t)

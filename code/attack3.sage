@@ -24,11 +24,11 @@ print("y =", Y )
 sys = [X*g*X for g in G] + list(Y*matrix([X*(g+g.transpose()) for g in G[:r+1]]))
 print("The system is [X^T.gi.X, 1<= i <= m] + Y^T.jac(G)(x) and has",n+m, "equations.")
 
-ToMSolve(sys, "sing"+str(m)+"_"+str(n)+".ms")
+ToMSolve(sys, "io/sing"+str(m)+"_"+str(n)+".ms")
 print("We solve the system using msolve:")
 try: 
-    os.system('./msolve -v2 -g2 -t8 -f sing'+str(m)+"_"+str(n)+".ms -o sing"+str(m)+"_"+str(n)+".o > log"+str(m)+"_"+str(n))
-    gb = FromMsolve("sing"+str(m)+"_"+str(n)+".o", R)
+    os.system('./msolve -v2 -g2 -t8 -f io/sing'+str(m)+"_"+str(n)+".ms -o io/sing"+str(m)+"_"+str(n)+".o > io/log"+str(m)+"_"+str(n))
+    gb = FromMsolve("io/sing"+str(m)+"_"+str(n)+".o", R)
 except :
     print("Issue with msolve, using Sagemath instead")
     gb = Ideal(sys).groebner_basis()[::-1]
@@ -47,6 +47,6 @@ print(M)
 print("")
 print("Its right kernel (the intersection of the hyperplanes they define) is O.")
 C = matrix((M.right_kernel()).basis())
-print("We show this by computing the evaluation of the polar forms of the public key on the basis (Lemma 1):")
+print("We show this by computing the evaluation of the polar forms of the public key on the basis (Lemma 2.1):")
 for g in G :
     print(C*g*C.transpose(), '\n')
