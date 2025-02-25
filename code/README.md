@@ -1,7 +1,4 @@
 This folder contains code demonstrating the properties of the singular locus of a UOV public key, and the attacks on UOV and VOX.
-It is recommended to use msolve: binaries are provided on the webpage
-https://msolve.lip6.fr/binaries/index.html
-Simply drop the binary in this folder and rename it "msolve".
 
 The file **exp_sing.sage** generates equations for several parameter sets, and verifies the dimension of the singular locus by intersecting it with random hyperplanes.
 If the number of hyperplanes matches the dimension, the system is zero-dimensional,
@@ -15,7 +12,7 @@ We also notice that the Gröbner bases we compute contain linear polynomials, wh
 We expect, if the singular locus is included in O, that these equations define the intersection of O with the random hyperplanes we added to the system.
 We verify this in practice.
 
-To run the experiments yourself on a computer with sage and compatible with the provided compiled msolve binary (the systems are harder to solve for the native sage Gröbner basis solver):
+To run the experiments yourself on a computer with sage and compatible with the provided compiled msolve binary (the systems are hard to solve for the native sage Gröbner basis solver):
 
 	sage exp_sing.sage
 
