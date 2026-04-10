@@ -21,9 +21,5 @@ We also demonstrate the one vector key recovery.
 To run it: 
 
 	sage VOX.sage
-	
-The file **attack3.sage** generates a UOV public key and computes a grevlex Gröbner basis of the ideal describing the singular locus of a subset of equations, as described in Section 3.4. Then, it demonstrates that the linear equations define O. This file uses the native sage multivariate solver.
-To run it:
 
-	sage attack3.sage
 	
